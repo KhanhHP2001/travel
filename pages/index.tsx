@@ -1,4 +1,5 @@
 
+import Hero from '@/components/Hero/Hero';
 import MobileNav from '@/components/Navbar/MobileNav';
 import Navbar from '@/components/Navbar/Navbar';
 
@@ -13,6 +14,8 @@ const Homepage = () => {
       {/* Navbar */}
       <MobileNav nav={nav} closeNav={closeNavHandler} />
       <Navbar openNav={openNavHandler} />
+      {/* Hero */}
+      <Hero />
     </div>
   );
 }
