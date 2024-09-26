@@ -4,7 +4,7 @@ import SearchBox from "../Helper/SearchBox";
 const Hero = () => {
     return (
         <div className="relative w-[100%] h-[88vh]">
-            <div className="absolute top-0 left-0 w-[100%] h-[100%] bg-blue-800"></div>
+            <div className="absolute top-0 left-0 w-[100%] h-[100%] bg-blue-800 opacity-30"></div>
             <video
                 src="/images/hero.mp4"
                 autoPlay

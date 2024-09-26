@@ -1,8 +1,10 @@
 
+import Contract from '@/components/Contract/Contract';
 import Hero from '@/components/Hero/Hero';
 import Hotels from '@/components/Hotels/Hotels';
 import MobileNav from '@/components/Navbar/MobileNav';
 import Navbar from '@/components/Navbar/Navbar';
+import Reviews from '@/components/Reviews/Reviews';
 import TopDestination from '@/components/TopDestination/TopDestination';
 
 import React, { useState } from 'react'
@@ -21,6 +23,8 @@ const Homepage = () => {
       <TopDestination />
       {/* Hotels */}
       <Hotels />
+      <Reviews />
+      <Contract />
     </div>
   );
 }
