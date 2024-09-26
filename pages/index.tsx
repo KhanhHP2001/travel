@@ -1,7 +1,9 @@
 
 import Hero from '@/components/Hero/Hero';
+import Hotels from '@/components/Hotels/Hotels';
 import MobileNav from '@/components/Navbar/MobileNav';
 import Navbar from '@/components/Navbar/Navbar';
+import TopDestination from '@/components/TopDestination/TopDestination';
 
 import React, { useState } from 'react'
 
@@ -16,6 +18,9 @@ const Homepage = () => {
       <Navbar openNav={openNavHandler} />
       {/* Hero */}
       <Hero />
+      <TopDestination />
+      {/* Hotels */}
+      <Hotels />
     </div>
   );
 }
