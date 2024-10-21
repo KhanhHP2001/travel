@@ -8,14 +8,14 @@ const Adventure = () => {
                 <div className='flex flex-col space-y-6 space-x-10 '>
                     <div>
                         <h1 className='heading font-bold text-[#f46036]'>
-                            KÝ DANH NHÀ CHINH PHỤC CÙNG
+                            Ký danh nhà chinh phục
                         </h1>
-                        <h1 className='heading font-bold' >ADVENTURE</h1>
+                        <h1 className='heading font-bold' >Vouring</h1>
                     </div>
 
                     <div className='mt-8'>
                         Không chỉ đi theo tiếng gọi từ thiên nhiên hoang dã,
-                        Tổ Ong đưa bạn đến với những hành trình chinh phục bản thân,
+                        Vouring đưa bạn đến với những hành trình chinh phục bản thân,
                         chứng minh được sức mạnh và sự bền bỉ của tinh thần, thể lực cùng những chuyên gia leo núi thực thụ.
                     </div>
 
@@ -53,7 +53,7 @@ const Adventure = () => {
                             CHUYÊN NGHIỆP
                         </span>
                         <div className='mt-2'>
-                            Tất cả những hoạt động hướng về tự nhiên của Tổ Ong Adventure đều gắn liền với tiêu chí bền vững. Chúng tôi duy trì các quá trình sinh thái và giúp bảo tồn đa dạng và di sản thiên nhiên. Bên cạnh đó, chúng tôi góp phần vào quá trình phát triển bền vững bằng cách giải quyết vấn đề việc làm, tạo thu nhập ổn định, nâng cao chất lượng cuộc sống của người dân bản địa.
+                            Tất cả những hoạt động hướng về tự nhiên của Vouring đều gắn liền với tiêu chí bền vững. Chúng tôi duy trì các quá trình sinh thái và giúp bảo tồn đa dạng và di sản thiên nhiên. Bên cạnh đó, chúng tôi góp phần vào quá trình phát triển bền vững bằng cách giải quyết vấn đề việc làm, tạo thu nhập ổn định, nâng cao chất lượng cuộc sống của người dân bản địa.
                         </div>
                     </div>
                 </div>

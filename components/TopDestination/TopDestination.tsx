@@ -11,9 +11,9 @@ const TopDestination = () => {
                 <div className='flex justify-between'>
                     <div className='cursor-pointer w-[40px] h-[40px]'>
                     </div>
-                    <div>Là đơn vị tổ chức leo núi chuyên nghiệp, Tổ Ong Adventure sở hữu đội ngũ chuyên gia đi rừng được trang bị kỹ lưỡng về kiến thức và kỹ năng chuyên môn.
+                    <div>Là đơn vị tổ chức leo núi chuyên nghiệp, Vouring sở hữu đội ngũ chuyên gia đi rừng được trang bị kỹ lưỡng về kiến thức và kỹ năng chuyên môn.
                         Thương hiệu ra đời không phải để chứng tỏ cái tôi của những người leo núi, chúng tôi muốn chia sẻ năng lượng bền bỉ khi chinh phục thiên nhiên của con người.
-                        Với tâm thế của một Trekking Expert, Tổ Ong Adventure đề cao sự an toàn trong mỗi chuyến đi nhằm mang đến cho khách hàng
+                        Với tâm thế của một Trekking Expert, Vouring đề cao sự an toàn trong mỗi chuyến đi nhằm mang đến cho khách hàng
                         những trải nghiệm tuyệt vời nhất xuyên suốt hành trình.
                     </div>
                 </div>
