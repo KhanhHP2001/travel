@@ -1,10 +1,8 @@
 import React from "react";
-import SearchBox from "../Helper/SearchBox";
-
 const Hero = () => {
     return (
         <div className="relative w-[100%] h-[88vh]">
-            <div className="absolute top-0 left-0 w-[100%] h-[100%] bg-blue-800 opacity-30"></div>
+            <div className="absolute top-0 left-0 w-[100%] h-[100%]"></div>
             <video
                 src="/images/hero.mp4"
                 autoPlay
@@ -17,19 +15,11 @@ const Hero = () => {
                 <div className="flex items-center justify-center flex-col w-[100%] h-[100%]">
                     <div>
                         <h1 className="text-[25px] mb-[1rem] md:mb-[0] text-center md:text-[35px] lg:text-[45px] tracking-[0.7rem] text-white font-bold uppercase">
-                            Lets Enjoy The Journy
+                            Khám phá giới hạn, chinh phục thiên nhiên
                         </h1>
-                        <p className="md:text-[16px] text-center text-[18px] text-white font-normal [word-spacing:5px]">Get the best prices on 2,000,000+ properties, worldwide</p>
+                        <p className="md:text-[16px] text-center text-[18px] text-white font-normal [word-spacing:5px]">Bắt đầu cuộc hành trình của bạn</p>
                     </div>
-                    {/* Seach */}
-                    <SearchBox />
-                    <a href="#" className="rounded px-14 md:px-28 mt-[-1rem] py-2.5 overflow-hidden group bg-red-500
-                    relative hover:bg-gradient-to-r hover:from-red-500 hover:to-red-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-red-400 
-                    transition-all ease-out duration-300">
-                        <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12
-                        bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease-linear"></span>
-                        <span className="relative font-bold">Search</span>
-                    </a>
+
                 </div>
             </div>
         </div>

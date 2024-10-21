@@ -1,11 +1,10 @@
 
-import Contract from '@/components/Contract/Contract';
-import Hero from '@/components/Hero/Hero';
-import Hotels from '@/components/Hotels/Hotels';
-import MobileNav from '@/components/Navbar/MobileNav';
-import Navbar from '@/components/Navbar/Navbar';
-import Reviews from '@/components/Reviews/Reviews';
-import TopDestination from '@/components/TopDestination/TopDestination';
+import Adventure from '@/Components/Adventure/Adventure';
+import Hero from '@/Components/Hero/Hero';
+import Hotels from '@/Components/Hotels/Hotels';
+import MobileNav from '@/Components/Navbar/MobileNav';
+import Navbar from '@/Components/Navbar/Navbar';
+import TopDestination from '@/Components/TopDestination/TopDestination';
 
 import React, { useState } from 'react'
 
@@ -21,10 +20,9 @@ const Homepage = () => {
       {/* Hero */}
       <Hero />
       <TopDestination />
+      <Adventure />
       {/* Hotels */}
       <Hotels />
-      <Reviews />
-      <Contract />
     </div>
   );
 }
