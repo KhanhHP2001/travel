@@ -13,7 +13,7 @@ const Hero = () => {
             />
             <div className="absolute z-[100] w-[100%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
                 <div className="flex items-center justify-center flex-col w-[100%] h-[100%]">
-                    <div>
+                    <div data-aos="fade-right">
                         <h1 className="text-[25px] mb-[1rem] md:mb-[0] text-center md:text-[35px] lg:text-[45px] tracking-[0.7rem] text-white font-bold uppercase">
                             Khám phá giới hạn, chinh phục thiên nhiên
                         </h1>

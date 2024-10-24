@@ -18,4 +18,13 @@
   .destination__p {
     @apply text-black text-[17px] text-center opacity-70 font-semibold;
   }
+  .footer__heading {
+    @apply mb-[1.5rem] text-black text-[20px] font-bold;
+  }
+  .footer__link {
+    @apply block mb-[1rem] text-gray-600 text-[16px] hover:text-black transition duration-100 w-fit;
+  }
+  .footer__icon {
+    @apply w-[2.3rem] h-[2.3rem] flex cursor-pointer items-center justify-center rounded-full hover:opacity-60 transition-all duration-200;
+  }
 }
