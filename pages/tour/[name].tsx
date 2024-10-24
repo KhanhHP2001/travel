@@ -33,7 +33,7 @@ const tourData: { [key: string]: Tour } = {
     },
     "Mã Pí Lèng": {
         description: "A breathtaking tour to Mã Pí Lèng...",
-        image: '/images/mapileng.png', // Example image path
+        image: '/images/demileng.png', // Example image path
         itinerary: ["Day 1: Drive through the pass", "Day 2: Explore surroundings", "Day 3: Departure"],
         price: 500000,
     }
@@ -63,20 +63,23 @@ const TourDetails = () => {
                 <h1 className='heading text-center'>{decodedName}</h1>
 
                 {/* Tour Image */}
-                <div className='relative w-full h-[400px] mt-[2rem]'>
-                    <Image
-                        src={tour.image}
-                        alt={`Image of ${decodedName}`}
-                        layout='fill'
-                        objectFit='cover'
-                        className='rounded-md'
-                    />
+                <div className='flex justify-center mt-[2rem]'>
+                    <div className='relative'>
+                        <Image
+                            src={tour.image}
+                            alt={`Image of ${decodedName}`}
+                            width={1000}
+                            height={600}
+                            objectFit='cover'
+                            className='rounded-md'
+                        />
+                    </div>
                 </div>
 
                 {/* Tour Description */}
-                <div className='flex-col justify-center items-center'>
-                    <h1>Giới thiệu</h1>
-                    <p className='mt-[2rem] text-[18px] text-center'>{tour.description}</p>
+                <div className='flex flex-col justify-center items-center mt-[2rem]'>
+                    <h1 className='text-[22px] font-bold'>Giới thiệu</h1>
+                    <p className='mt-[1rem] text-[18px] text-center max-w-[700px]'>{tour.description}</p>
                 </div>
 
 
