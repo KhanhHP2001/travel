@@ -1,7 +1,7 @@
 import MobileNav from '@/components/Navbar/MobileNav';
 import Navbar from '@/components/Navbar/Navbar';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 
 // Define the type for tour data
@@ -120,68 +120,144 @@ const tourData: { [key: string]: Tour } = {
 const TourDetails = () => {
     const router = useRouter();
     const [nav, setNav] = useState(false);
+    const [selectedDay, setSelectedDay] = useState(0);
     const { name } = router.query;
     const decodedName = decodeURIComponent(name as string);
 
     const tour = tourData[decodedName];
+
+    // Refs for scrolling
+    const descriptionRef = useRef<HTMLDivElement>(null);
+    const durationRef = useRef<HTMLDivElement>(null);
+    const itineraryRef = useRef<HTMLDivElement>(null);
+    const priceRef = useRef<HTMLDivElement>(null);
 
     if (!tour) return <div>Không có Tour nào!</div>;
 
     const openNavHandler = () => setNav(true);
     const closeNavHandler = () => setNav(false);
 
+    const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+
     return (
-        <div className='bg-gray-100'>
+        <div className='bg-[#fcf7f3]'>
             <MobileNav nav={nav} closeNav={closeNavHandler} />
             <Navbar openNav={openNavHandler} />
 
-            <div className='pt-[5rem] bg-gray-100 pb-[4rem] w-[80%] mx-auto'>
-                <h1 className='heading text-center'>{decodedName}</h1>
+            <div className='flex w-full max-w-[1200px] mx-auto pt-[5rem] pb-[4rem]'>
+                {/* Main Content */}
+                <div className='w-[75%] p-4'>
+                    <h1 className='heading text-center'>{decodedName}</h1>
 
-                {/* Tour Image */}
-                <div className='flex justify-center mt-[2rem]'>
-                    <div className='relative'>
-                        <Image
-                            src={tour.image}
-                            alt={`Image of ${decodedName}`}
-                            width={1000}
-                            height={600}
-                            objectFit='cover'
-                            className='rounded-md'
-                        />
+                    {/* Tour Image */}
+                    <div className='flex justify-center mt-[2rem]'>
+                        <div className='relative'>
+                            <Image
+                                src={tour.image}
+                                alt={`Image of ${decodedName}`}
+                                width={1000}
+                                height={600}
+                                objectFit='cover'
+                                className='rounded-md'
+                            />
+                        </div>
                     </div>
-                </div>
 
-                {/* Tour Description */}
-                <div className='flex flex-col justify-center items-center mt-[2rem]'>
-                    <h1 className='text-[22px] font-bold'>Giới thiệu</h1>
-                    <p className='mt-[1rem] text-[18px] text-center max-w-[700px]'>{tour.description}</p>
-                </div>
+                    {/* Tour Description */}
+                    <div ref={descriptionRef} className='flex flex-col justify-center items-center mt-[2rem]'>
+                        <h1 className='text-[22px] font-bold'>Giới thiệu</h1>
+                        <p className='mt-[1rem] text-[18px] text-center max-w-[700px]'>{tour.description}</p>
+                    </div>
 
-                {/* Tour Duration */}
-                <div className='flex justify-center items-center mt-[2rem]'>
-                    <h2 className='text-[22px] font-bold'>Thời gian:</h2>
-                    <p className='ml-2 text-[20px]'>{tour.duration}</p>
-                </div>
+                    {/* Tour Duration */}
+                    <div ref={durationRef} className='flex justify-center items-center mt-[2rem]'>
+                        <h2 className='text-[22px] font-bold'>Thời gian:</h2>
+                        <p className='ml-2 text-[20px]'>{tour.duration}</p>
+                    </div>
 
-                {/* Itinerary */}
-                <h2 className='mt-[2rem] text-[22px] font-bold'>Lịch trình chi tiết:</h2>
-                <div className='mt-[1rem]'>
-                    {tour.itinerary.map((day, index) => (
-                        <div key={index} className='mb-[1rem]'>
-                            <h3 className='text-[20px] font-semibold'>{day.day}</h3>
+                    {/* Itinerary Tabs */}
+                    <div ref={itineraryRef}>
+                        <h2 className='mt-[2rem] text-[22px] font-bold'>Lịch trình chi tiết:</h2>
+                        <div className='flex gap-4 mt-4 border-b'>
+                            {tour.itinerary.map((day, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setSelectedDay(index)}
+                                    className={`py-2 px-4 border-b-2 ${selectedDay === index ? 'border-blue-500 font-bold' : 'border-transparent'
+                                        }`}
+                                >
+                                    {day.day}
+                                </button>
+                            ))}
+                        </div>
+                        <div className='mt-4'>
+                            <h3 className='text-[20px] font-semibold'>{tour.itinerary[selectedDay].day}</h3>
                             <ul className='list-disc pl-[1.5rem] mt-[0.5rem]'>
-                                {day.details.map((item, index) => (
+                                {tour.itinerary[selectedDay].details.map((item, index) => (
                                     <li key={index} className='mt-[0.5rem]'>{item}</li>
                                 ))}
                             </ul>
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Tour Price */}
+                    <div ref={priceRef}>
+                        <h2 className='mt-[2rem] text-[22px] font-bold'>Giá Tour:</h2>
+                        <p className='text-[20px] text-orange-600 font-semibold'>{tour.price}</p>
+                    </div>
                 </div>
 
-                {/* Tour Price */}
-                <h2 className='mt-[2rem] text-[22px] font-bold'>Giá Tour:</h2>
-                <p className='text-[20px] text-orange-600 font-semibold'>{tour.price}</p>
+                {/* Sidebar */}
+                <div className='w-[25%] p-4 bg-white rounded-md shadow-md ml-6 sticky top-[5rem] h-fit'>
+                    <h2 className='text-[20px] font-bold text-center'>Thông tin tour</h2>
+                    <p className='text-[16px] text-gray-400 text-center'>Độ tuổi tham gia: 18-70 tuổi</p>
+                    <p className='mt-2 text-center text-orange-600 font-semibold'>{tour.price}</p>
+                    <button className='mt-4 w-full bg-blue-500 hover:bg-orange-400 duration-300 text-white py-2 rounded-md font-semibold'>
+                        Đặt chỗ
+                    </button>
+
+                    {/* Table of Contents */}
+                    <div className='mt-6'>
+                        <h3 className='text-[18px] font-bold'>Mục lục</h3>
+                        <ul className='mt-2 space-y-2'>
+                            <li>
+                                <button
+                                    onClick={() => scrollToSection(descriptionRef)}
+                                    className='text-blue-500 hover:underline'
+                                >
+                                    Giới thiệu
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => scrollToSection(durationRef)}
+                                    className='text-blue-500 hover:underline'
+                                >
+                                    Thời gian
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => scrollToSection(itineraryRef)}
+                                    className='text-blue-500 hover:underline'
+                                >
+                                    Lịch trình
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => scrollToSection(priceRef)}
+                                    className='text-blue-500 hover:underline'
+                                >
+                                    Giá Tour
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     );
